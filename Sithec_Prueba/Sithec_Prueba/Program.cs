@@ -15,7 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-string CONNECTION_STRING = builder.Configuration.GetConnectionString("puto");
+string CONNECTION_STRING = builder.Configuration.GetConnectionString("Connection");
 builder.Services.AddDbContext<ApplicationDbContext>(option =>
 {
     option.UseSqlServer(CONNECTION_STRING);
