@@ -1,11 +1,16 @@
-﻿using Sithec_Prueba.Entities;
-using Sithec_Prueba.Utils;
+﻿using Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Utils;
 
-namespace Sithec_Prueba.Bussines.Interfaces
+namespace Bussines.Interfaces
 {
     public interface IBusHumano
     {
-        Task<SithecResponse<bool>> BSaveHumano(EntHumano entIncomeSchedules);
+        Task<SithecResponse<bool>> BSaveHumano(EntHumanoCreacion entHumanoCreacion);
         Task<SithecResponse<bool>> BUpdateHumano(EntHumano entIncomeSchedules);
         Task<SithecResponse<bool>> BDeleteHumano(Guid ikey);
         Task<SithecResponse<List<EntHumano>>> bGetAll();

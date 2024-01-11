@@ -1,11 +1,16 @@
-﻿using Sithec_Prueba.Bussines.Interfaces;
-using Sithec_Prueba.Data.Interfaces;
-using Sithec_Prueba.Entities;
-using Sithec_Prueba.Utils;
+﻿using Bussines.Interfaces;
+using Data.Interfaces;
+using Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Utils;
 
-namespace Sithec_Prueba.Bussines
+namespace Bussines
 {
-    public class BusHumano:IBusHumano
+    public class BusHumano : IBusHumano
     {
         private readonly IDatHumano datHumano;
 
@@ -14,9 +19,18 @@ namespace Sithec_Prueba.Bussines
             this.datHumano = datHumano;
         }
 
-        public async Task<SithecResponse<bool>> BSaveHumano(EntHumano entHumano)
+        public async Task<SithecResponse<bool>> BSaveHumano(EntHumanoCreacion entHumanoCreacion)
         {
             SithecResponse<bool> response = new SithecResponse<bool>();
+
+            EntHumano entHumano = new()
+            {
+                Nombre = entHumanoCreacion.Nombre,
+                Sexo =entHumanoCreacion.Sexo,
+                Edad=entHumanoCreacion.Edad,
+                Altura=entHumanoCreacion.Altura,
+                Peso=entHumanoCreacion.Peso
+            };
 
             try
             {

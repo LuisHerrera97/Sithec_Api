@@ -1,10 +1,9 @@
-using System.Net;
-using Sithec_Prueba.Data;
+using Bussines;
+using Bussines.Interfaces;
+using Data;
+using Data.Interfaces;
+using Data.Querys;
 using Microsoft.EntityFrameworkCore;
-using Sithec_Prueba.Bussines.Interfaces;
-using Sithec_Prueba.Bussines;
-using Sithec_Prueba.Data.Interfaces;
-using Sithec_Prueba.Data.Querys;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,10 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Bussines.Interfaces;
+using Entities;
+using Entities.enums;
 using Microsoft.AspNetCore.Mvc;
-using Sithec_Prueba.Bussines;
-using Sithec_Prueba.Bussines.Interfaces;
-using Sithec_Prueba.Entities;
-using Sithec_Prueba.Entities.enums;
-using Sithec_Prueba.Utils;
+using Utils;
 
 namespace Sithec_Prueba.Controllers
 {
@@ -24,13 +22,13 @@ namespace Sithec_Prueba.Controllers
             return StatusCode((int)response.HttpCode, response);
         }
         [HttpGet("realizarOperacionConHeaders")]
-        public async Task<ActionResult<SithecResponse<double>>> RealizarOperacionConHeaders([FromHeader] double Numero1, [FromHeader] double Numero2, [FromHeader] OperacionEnum operacionEnum)
+        public async Task<ActionResult<SithecResponse<double>>> RealizarOperacionWithHeaders([FromHeader] double Numero1, [FromHeader] double Numero2, [FromHeader] OperacionEnum operacionEnum)
         {
             EntOperacion entOperacion = new EntOperacion();
             entOperacion.Numero1 = Numero1;
             entOperacion.Numero2 = Numero2;
             entOperacion.Operacion = operacionEnum;
-            SithecResponse<double> response = await busOperaciones.BRealizarOperacion(entOperacion);
+            SithecResponse<double> response = await busOperaciones.BRealizarOperacionWithHeader(Numero1,Numero2,operacionEnum);
             return StatusCode((int)response.HttpCode, response);
         }
     }

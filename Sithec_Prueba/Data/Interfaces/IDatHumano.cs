@@ -1,7 +1,12 @@
-﻿using Sithec_Prueba.Entities;
-using Sithec_Prueba.Utils;
+﻿using Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Utils;
 
-namespace Sithec_Prueba.Data.Interfaces
+namespace Data.Interfaces
 {
     public interface IDatHumano
     {

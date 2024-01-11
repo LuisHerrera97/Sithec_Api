@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Bussines.Interfaces;
+using Entities;
 using Microsoft.AspNetCore.Mvc;
-using Sithec_Prueba.Bussines.Interfaces;
-using Sithec_Prueba.Entities;
-using Sithec_Prueba.Utils;
+using Utils;
 
 namespace Sithec_Prueba.Controllers
 {
@@ -17,9 +16,9 @@ namespace Sithec_Prueba.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<SithecResponse<bool>>> SaveHumano(EntHumano entHumano)
+        public async Task<ActionResult<SithecResponse<bool>>> SaveHumano(EntHumanoCreacion entHumanoCreacion)
         {
-            SithecResponse<bool> response = await busHumano.BSaveHumano(entHumano);
+            SithecResponse<bool> response = await busHumano.BSaveHumano(entHumanoCreacion);
             return StatusCode((int)response.HttpCode, response);
         }
 

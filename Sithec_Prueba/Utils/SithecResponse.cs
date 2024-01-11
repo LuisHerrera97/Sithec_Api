@@ -1,9 +1,14 @@
-﻿using Sithec_Prueba.Utils.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using Utils.Interfaces;
 
-namespace Sithec_Prueba.Utils
+namespace Utils
 {
-    public class SithecResponse<T>:ISithecResponse<T>
+    public class SithecResponse<T> : ISithecResponse<T>
     {
         public HttpStatusCode HttpCode { get; set; }
         public bool HasError { get; set; }

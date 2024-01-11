@@ -1,6 +1,11 @@
-﻿using Sithec_Prueba.Entities.enums;
+﻿using Entities.enums;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Sithec_Prueba.Entities
+namespace Entities
 {
     public class EntOperacion
     {

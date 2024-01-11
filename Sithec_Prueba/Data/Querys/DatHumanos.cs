@@ -1,11 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Sithec_Prueba.Data.Interfaces;
-using Sithec_Prueba.Entities;
-using Sithec_Prueba.Utils;
+using Data.Interfaces;
+using Entities;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Utils;
 
-namespace Sithec_Prueba.Data.Querys
+namespace Data.Querys
 {
-    public class DatHumanos: IDatHumano
+    public class DatHumanos : IDatHumano
     {
         private readonly ApplicationDbContext _context;
         private readonly ILogger<DatHumanos> _logger;
@@ -112,7 +118,7 @@ namespace Sithec_Prueba.Data.Querys
             SithecResponse<bool> response = new SithecResponse<bool>();
             try
             {
-                var exist = await _context.Humano.AsNoTracking().AsQueryable().AnyAsync(i => i.Nombre==entHumano.Nombre);
+                var exist = await _context.Humano.AsNoTracking().AsQueryable().AnyAsync(i => i.Nombre == entHumano.Nombre);
 
                 response.SetSuccess(exist, exist ? "Registro ya existente" : "No existe registro");
             }
@@ -159,7 +165,7 @@ namespace Sithec_Prueba.Data.Querys
                 entHumanoMap.Peso = result.Peso;
 
                 response.SetSuccess(entHumanoMap);
-                
+
             }
             catch (Exception ex)
             {
